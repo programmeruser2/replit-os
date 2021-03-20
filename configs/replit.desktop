@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Replit
+Comment=Runs Replit fullscreen in Chromium
+Exec=/usr/share/xsessions/replit.sh
+Type=Application
