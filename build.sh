@@ -12,4 +12,8 @@ if [ ! -f ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso ]; then
     wget https://releases.ubuntu.com/${UBUNTU_VERSION}/ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso
 fi
 topic "Installing basic Ubuntu disk image..."
+echo "Follow the Ubuntu installer and close the window when finished."
 qemu-system-x86_64 -hda disk.img -cdrom ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso -boot d
+#topic "Mounting disk.img on a loop device..."
+#loop_device=$(losetup --partscan --show --find binary.img)
+#mount /dev/${loop_device}
