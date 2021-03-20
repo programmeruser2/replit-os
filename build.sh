@@ -13,7 +13,7 @@ if [ ! -f ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso ]; then
 fi
 topic "Installing basic Ubuntu disk image..."
 echo "Follow the Ubuntu installer and close the window when finished."
-qemu-system-x86_64 -hda disk.img -cdrom ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso -boot d
+qemu-system-x86_64 -hda disk.img -cdrom ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso -m 2G -boot d
 #topic "Mounting disk.img on a loop device..."
 #loop_device=$(losetup --partscan --show --find binary.img)
 #mount /dev/${loop_device}
