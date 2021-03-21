@@ -5,7 +5,7 @@ topic() {
 UBUNTU_VERSION=20.04.2.0
 if [ ! -f disk.img ]; then
     topic "Creating disk.img as raw disk image..."
-    qemu-img create -f raw disk.img 5G
+    qemu-img create -f raw disk.img 10G
 fi
 if [ ! -f ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso ]; then
     topic "Fetching Ubuntu ISO..."
