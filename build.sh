@@ -14,6 +14,7 @@ fi
 topic "Installing basic Ubuntu disk image..."
 echo "Follow the Ubuntu installer and close the window when finished."
 echo "Choose the MBR partition scheme with a ext4 partition mounted on /"
+echo "The user should be 'replit-user' with a password of 'password'"
 qemu-system-x86_64 -hda disk.img -cdrom ubuntu-${UBUNTU_VERSION}-desktop-amd64.iso -m 2G -boot d
 topic "Mounting disk.img on a loop device..."
 loop_device=$(losetup --partscan --show --find disk.img)
