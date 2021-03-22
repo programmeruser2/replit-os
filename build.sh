@@ -24,6 +24,7 @@ mount -t ext4 ${loop_device}p1 $mount_point
 topic "Copying desktop configuration files..."
 cp configs/replit.desktop $mount_point/usr/share/xsessions/replit.desktop
 cp configs/replit.sh $mount_point/usr/share/xsessions/replit.sh
+cp configs/.dmrc $mount_point/home/replit-user/.dmrc
 topic "Unmounting disk.img and the ext4 filesystem..."
 umount $mount_point
 losetup -d $loop_device
