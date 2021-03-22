@@ -24,7 +24,18 @@ mount -t ext4 ${loop_device}p1 $mount_point
 topic "Copying desktop configuration files..."
 cp configs/replit.desktop $mount_point/usr/share/xsessions/replit.desktop
 cp configs/replit.sh $mount_point/usr/share/xsessions/replit.sh
-cp configs/.dmrc $mount_point/home/replit-user/.dmrc
+#cp configs/.dmrc $mount_point/home/replit-user/.dmrc
+cp configs/replit-user $mount_point/var/lib/AccountsService/users/replit-user
+topic "Entering chroot..."
+chroot $mount_point << "EOT"
+topic() {
+    echo "---> $1"
+}
+topic "Setting nameserver to 8.8.8.8"
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+topic "Installing packages..."
+apt-get install chromium-browser -y
+EOT
 topic "Unmounting disk.img and the ext4 filesystem..."
 umount $mount_point
 losetup -d $loop_device
