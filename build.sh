@@ -18,6 +18,8 @@ qemu-system-x86_64 -hda disk.img -cdrom ubuntu-${UBUNTU_VERSION}-desktop-amd64.i
 topic "Mounting disk.img on a loop device..."
 loop_device=$(losetup --partscan --show --find disk.img)
 topic "Mounting the ext4 filesystem..."
-read mount_point -p "Filesystem mount point: "
-mount -t ext4 /dev/${loop_device}p1 $mount_point
-
+read -p "Filesystem mount point: " mount_point
+mount -t ext4 ${loop_device}p1 $mount_point
+topic "Unmounting disk.img and the ext4 filesystem..."
+umount $mount_point
+losetup -d $loop_device
