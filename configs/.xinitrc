@@ -1,2 +1,2 @@
 #!/bin/sh
-chromium-browser  --start-fullscreen --kiosk
+chromium-browser https://repl.it --start-fullscreen --kiosk
